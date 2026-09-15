@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARQUIVO 062 - THOMAS</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#070707;color:#ddd;font-family:monospace;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px);z-index:10}
+.screen{min-height:100vh;padding:30px;display:none}.active{display:block}
+#boot{align-items:center;justify-content:center;text-align:center}
+#boot.active{display:flex}
+.boot{width:min(700px,90%)}.muted{color:#666;font-size:12px;letter-spacing:2px}
+.line{height:1px;background:#333;margin:22px 0}
+.logo{font-size:clamp(38px,9vw,82px);letter-spacing:6px}
+.red{color:#a51d1d}
+button{font:inherit;cursor:pointer}
+.access{margin-top:35px;padding:14px 24px;background:transparent;border:1px solid #555;color:#ddd}
+.access:hover{background:#8e1818}
+.layout{max-width:1100px;margin:auto}
+.header{border-bottom:1px solid #333;padding-bottom:14px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.menu{display:flex;overflow:auto;border-bottom:1px solid #292929;margin:25px 0 35px}
+.menu button{background:transparent;border:0;color:#666;padding:13px 18px;white-space:nowrap}
+.menu button.selected,.menu button:hover{background:#151515;color:#ddd}
+.tab{display:none}.tab.active{display:block}
+.title{font-size:28px;letter-spacing:3px;margin-bottom:8px}.subtitle{color:#666;margin-bottom:28px}
+.profile{display:grid;grid-template-columns:240px 1fr;gap:35px}
+.photo{aspect-ratio:3/4;border:1px solid #333;background:#111;display:flex;align-items:center;justify-content:center;text-align:center;color:#555}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.box,.record,.evidence{border:1px solid #292929;background:#0d0d0d;padding:18px}
+.label{display:block;color:#666;font-size:11px;margin-bottom:8px}.value{color:#ddd}
+.record{margin-bottom:12px;border-left:2px solid #444;line-height:1.6}
+.record:hover{border-left-color:#a51d1d}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.evidence{cursor:pointer;min-height:150px}.evidence:hover{border-color:#777}
+.num{color:#8e1818;font-size:12px;margin-bottom:22px}
+.final{max-width:760px;line-height:1.9}
+.warning{margin:25px 0;padding:18px;border:1px solid #4a1515;background:#140909;color:#c99}
+.signature{text-align:right;margin-top:50px;color:#888}
+@media(max-width:700px){.screen{padding:18px}.profile{grid-template-columns:1fr}.photo{max-width:230px}.info,.grid{grid-template-columns:1fr}.title{font-size:22px}}
+</style>
+</head>
+<body>
+
+<section id="boot" class="screen active">
+<div class="boot">
+<div class="muted">SISTEMA DE ARQUIVAMENTO // ACESSO RESTRITO</div>
+<div class="line"></div>
+<div class="logo">ARQUIVO <span class="red">062</span></div>
+<div class="muted">INDIVÍDUO IDENTIFICADO: THOMAS</div>
+<button class="access" onclick="openFile()">[ ACESSAR ARQUIVO ]</button>
+</div>
+</section>
+
+<section id="file" class="screen">
+<div class="layout">
+<div class="header"><span>ARQUIVO Nº 062</span><span>STATUS: <b class="red">ATIVO</b></span></div>
+
+<nav class="menu">
+<button class="selected" onclick="tab('perfil',this)">PERFIL</button>
+<button onclick="tab('registros',this)">REGISTROS</button>
+<button onclick="tab('evidencias',this)">EVIDÊNCIAS</button>
+<button onclick="tab('analise',this)">ANÁLISE</button>
+</nav>
+
+<div id="perfil" class="tab active">
+<div class="title">AGENTE: THOMAS</div>
+<div class="subtitle">IDENTIFICAÇÃO DO INDIVÍDUO</div>
+<div class="profile">
+<div class="photo">[ COLOQUE A FOTO DO THOMAS AQUI ]</div>
+<div class="info">
+<div class="box"><span class="label">NOME</span><span class="value">THOMAS</span></div>
+<div class="box"><span class="label">CODINOME</span><span class="value">KAISER</span></div>
+<div class="box"><span class="label">STATUS</span><span class="value">ATIVO</span></div>
+<div class="box"><span class="label">NEX</span><span class="value">████████░░</span></div>
+<div class="box"><span class="label">CLASSE</span><span class="value">[ DEFINIR ]</span></div>
+<div class="box"><span class="label">AFINIDADE</span><span class="value">DESCONHECIDA</span></div>
+</div>
+</div>
+</div>
+
+<div id="registros" class="tab">
+<div class="title">REGISTROS</div><div class="subtitle">DOCUMENTOS RECUPERADOS</div>
+<div class="record"><span class="num">REGISTRO 001</span><br>O indivíduo demonstra forte interesse por universos fictícios e personagens com os quais estabelece identificação pessoal.</div>
+<div class="record"><span class="num">REGISTRO 002</span><br>Foi identificada uma relação particularmente significativa com o agente César Kaiser.</div>
+<div class="record"><span class="num">REGISTRO 003</span><br>[ ESCREVA AQUI UMA CURIOSIDADE MUITO ESPECÍFICA SOBRE O THOMAS ]</div>
+</div>
+
+<div id="evidencias" class="tab">
+<div class="title">EVIDÊNCIAS</div><div class="subtitle">MATERIAL ASSOCIADO AO INDIVÍDUO</div>
+<div class="grid">
+<div class="evidence" onclick="alert('EVIDÊNCIA 001\\n\\nAqui você pode colocar uma foto, frase ou referência ao Kaiser.')"><span class="num">EVIDÊNCIA 001</span><h3>KAISER</h3><br><span class="muted">IDENTIFICAÇÃO SIGNIFICATIVA</span></div>
+<div class="evidence" onclick="alert('EVIDÊNCIA 002\\n\\nColoque aqui uma foto especial do Thomas.')"><span class="num">EVIDÊNCIA 002</span><h3>REGISTRO VISUAL</h3><br><span class="muted">[ FOTO ]</span></div>
+<div class="evidence" onclick="alert('EVIDÊNCIA 003\\n\\nColoque aqui um desenho que você fez para ele.')"><span class="num">EVIDÊNCIA 003</span><h3>MATERIAL PESSOAL</h3><br><span class="muted">[ DESENHO ]</span></div>
+</div>
+</div>
+
+<div id="analise" class="tab">
+<div class="title">ANÁLISE FINAL</div><div class="subtitle">DOCUMENTO DE ENCERRAMENTO</div>
+<div class="final">
+<p>Após análise dos registros disponíveis, foram identificadas diversas características compatíveis entre o indivíduo e César Kaiser.</p>
+<div class="warning">ATENÇÃO: a identificação não representa uma equivalência entre os indivíduos.</div>
+<p>Thomas não é César Kaiser.</p><br>
+<p>Ele apenas encontrou nele algumas partes de si mesmo.</p><br>
+<p>E talvez seja por isso que você se identifica tanto com ele.</p><br>
+<p>Eu acho bonito poder conhecer essas partes de você através das coisas que você ama.</p><br>
+<p>Então esse arquivo existe por um motivo muito simples:</p><br>
+<p><b>eu queria criar alguma coisa que fosse completamente sua.</b></p>
+<div class="signature">FELIZ ANIVERSÁRIO, THOMAS.<br><br><span class="red">EU TE AMO.</span></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<script>
+function openFile(){document.getElementById('boot').classList.remove('active');document.getElementById('file').classList.add('active')}
+function tab(id,btn){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.menu button').forEach(x=>x.classList.remove('selected'));document.getElementById(id).classList.add('active');btn.classList.add('selected')}
+</script>
+</body>
+</html>
